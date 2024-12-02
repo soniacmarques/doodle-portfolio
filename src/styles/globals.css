@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.lollipop {
+  --r: 50px;
+  /* control the size */
+  --c1: #fd99d7;
+  --c2: #4e4cb0;
+
+  height: calc(2* var(--r));
+  aspect-ratio: 1;
+  clip-path: circle();
+  display: flex;
+}
+
+.lollipop:before,
+.lollipop:after {
+  content: "";
+  flex: 1;
+  --g1: radial-gradient(50% 50%, var(--c1) 99%, #0000) no-repeat;
+  --g2: radial-gradient(50% 50%, var(--c2) 99%, #0000) no-repeat;
+  background: var(--g1) calc(sin(60deg)* var(--r)) calc(var(--r) / -2), var(--g2) calc(var(--r) / 2) calc(sin(-60deg)* var(--r)), var(--g1) 0 calc(-1* var(--r)), var(--g2) calc(var(--r) / -2) calc(sin(-60deg)* var(--r)), var(--g1) calc(sin(-60deg)* var(--r)) calc(var(--r) / -2), var(--g2) calc(-1* var(--r)) 0, var(--g1) calc(sin(-60deg)* var(--r)) calc(var(--r) / 2);
+  background-size: 200%;
+}
+
+.lollipop:after {
+  rotate: 180deg;
+}
+
+
+.wavy-box {
+  --mask:
+    radial-gradient(38.48px at 50% calc(100% - 52.8px), #000 99%, #0000 101%) calc(50% - 66px) 0/132px 100%,
+    radial-gradient(38.48px at 50% calc(100% + 19.8px), #0000 99%, #000 101%) 50% calc(100% - 33px)/132px 100% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
